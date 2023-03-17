@@ -228,7 +228,28 @@
         "responses": {
           "200": {
             "description": "the data of the requested concept",
-            "content": {}
+            "content": {
+	      "application/rdf+xml": {
+	        "schema": {
+		  "type": "object"
+		}
+	      },
+	      "text/turtle": {
+	        "schema": {
+		  "type": "object"
+		}
+	      },
+	      "application/ld+json": {
+	        "schema": {
+		  "type": "object"
+		}
+	      },
+	      "application/json": {
+	        "schema": {
+		  "type": "object"
+		}
+	      }
+	    }
           },
           "404": {
             "description": "the URI did not match any known concept",
@@ -462,7 +483,28 @@
         "responses": {
           "200": {
             "description": "the RDF data of the requested vocabulary/concept, or MARCXML if the vocabulary supports such",
-            "content": {}
+            "content": {
+	      "application/rdf+xml": {
+	        "schema": {
+		  "type": "object"
+		}
+	      },
+	      "text/turtle": {
+	        "schema": {
+		  "type": "object"
+		}
+	      },
+	      "application/ld+json": {
+	        "schema": {
+		  "type": "object"
+		}
+	      },
+	      "application/json": {
+	        "schema": {
+		  "type": "object"
+		}
+	      }
+	    }
           },
           "304": {
             "description": "the resource was not modified, so there is no need to retransmit the requested resources",

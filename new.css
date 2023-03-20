@@ -22,6 +22,14 @@ li > a, .fw-semibold {
 .fp-dark-box {
   background-color: #002855;
 }
+a.nav-link > img {
+  width: 30px;
+  height: 30px;
+  line-height: 24px;
+}
+main {
+  background-image: url('img/viivakuvio.svg');
+}
 @media (min-width: 1000px) {
   h1 {
     font-size: 3.75rem! important;

@@ -1,0 +1,40 @@
+a {
+  color: #1b709d !important;
+}
+h1, h2, h3 {
+  color: #002855 !important;
+}
+h2 {
+  font-family: 'EB Garamond', serif !important;
+}
+h3.border-top {
+  border-top: 2px solid #002855 !important;
+}
+a, h1, h3, p, span {
+  font-family: 'Public Sans', sans-serif !important;
+}
+li > a, .fw-semibold {
+  font-weight: 600 !important;
+}
+.fp-light-box {
+  background-color: #dfe5ed;
+}
+.fp-dark-box {
+  background-color: #002855;
+}
+@media (min-width: 1000px) {
+  h1 {
+    font-size: 3.75rem! important;
+  }
+  h2 {
+    font-size: 3.25rem! important;
+  }
+  h3 {
+    font-size: 2.5rem! important;
+  }
+}
+@media (min-width: 1200px) {
+  .container-xxl {
+    max-width: 1400px !important;
+  }
+}

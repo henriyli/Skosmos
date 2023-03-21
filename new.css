@@ -13,6 +13,12 @@ h3.border-top {
 a, h1, h3, p, span {
   font-family: 'Public Sans', sans-serif !important;
 }
+.text-bg-dark {
+  background-color: #0d284e !important;
+}
+.text-bg-light {
+  background-color: #f2f5f7 !important;
+}
 li > a, .fw-semibold {
   font-weight: 600 !important;
 }
@@ -20,7 +26,7 @@ li > a, .fw-semibold {
   background-color: #dfe5ed;
 }
 .fp-dark-box {
-  background-color: #002855;
+  background-color: #0d284e;
 }
 a.nav-link > img {
   width: 40px;
@@ -28,6 +34,13 @@ a.nav-link > img {
 }
 a.nav-link {
   line-height: 40px;
+}
+
+body.frontpage {
+  background-color: #f2f5f7;
+}
+body.conceptpage {
+  background-color: #dfe5ed;
 }
 
 main {

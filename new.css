@@ -19,7 +19,7 @@ a, h1, h3, p, span {
 .text-bg-light {
   background-color: #f2f5f7 !important;
 }
-li > a, .fw-semibold {
+.fw-semibold {
   font-weight: 600 !important;
 }
 .fp-light-box {

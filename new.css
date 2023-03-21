@@ -36,6 +36,10 @@ a.nav-link {
   line-height: 40px;
 }
 
+.row > a, a.sidebar-nav {
+  text-decoration: none !important;
+}
+
 body.frontpage {
   background-color: #f2f5f7;
 }

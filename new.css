@@ -31,6 +31,11 @@ a, h1, h3, p, span {
 .concept-property {
   border-top: 1px solid #dfe5ed;
 }
+
+.concept-property > div > ul {
+  padding-left: 0 !important;
+}
+
 a.nav-link > img {
   width: 40px;
   height: 40px;
@@ -51,7 +56,7 @@ body.conceptpage {
 }
 
 main {
-  background-image: url('img/viivakuvio.svg');
+  /* background-image: url('img/viivakuvio.svg'); */
 }
 @media (min-width: 1000px) {
   h1 {

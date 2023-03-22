@@ -1,7 +1,7 @@
 a {
   color: #1b709d !important;
 }
-h1, h2, h3 {
+h1, h2, h3, .text-dark-blue {
   color: #002855 !important;
 }
 h2 {
@@ -36,7 +36,7 @@ a.nav-link {
   line-height: 40px;
 }
 
-.row > a, a.sidebar-nav {
+a {
   text-decoration: none !important;
 }
 

@@ -28,6 +28,9 @@ a, h1, h3, p, span {
 .fp-dark-box {
   background-color: #0d284e;
 }
+.concept-property {
+  border-top: 1px solid #dfe5ed;
+}
 a.nav-link > img {
   width: 40px;
   height: 40px;

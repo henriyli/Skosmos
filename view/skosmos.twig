@@ -30,10 +30,13 @@
       {% include 'left.inc' ignore missing %}
     {% endif %}
     {% block error %}
-    <div class="row" id="maincontent" tabindex="-1">
+    <div class="row" tabindex="-1">
       {% if request.vocabid == '' and request.page != 'feedback' and request.page != 'about' and not global_search %}
       <div class="col-md-7">
         {% include 'vocabularylist.twig' %}
+      </div>
+      <div class="col-md-5">
+        {% include 'landing-welcome.twig' %}
       </div>
       {% endif %}
     </div>

@@ -43,6 +43,12 @@ body {
   border-top: 2px var(--dark-color) solid !important;
 }
 
+.vocab-category a {
+    color: var(--secondary-dark-color);
+    text-decoration: underline var(--secondary-medium-color) solid;
+}
+
+
 .bg-dark {
   background-color: var(--dark-color) !important;
 }

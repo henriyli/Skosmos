@@ -1,26 +1,21 @@
-<div id="vocabulary-list">
-  <div class="logo-header">
+<div class="px-4 py-4 bg-medium" id="vocabulary-list">
   {% if request.vocabList|length == 0 %}
-  <h2>{% trans "No vocabularies on the server!" %}</h2>
+  <h2 class="fs-1 fw-bold">{% trans "No vocabularies on the server!" %}</h2>
   {% else %}
     {% if category_label %}
-    <h2>{{ category_label }}</h2>
+    <h2 class="fs-1 fw-bold py-3">{{ category_label }}</h2>
     {% else %}
-    <h2>{% trans "Available vocabularies and ontologies" %}</h2>
+    <h2 class="fs-1 fw-bold py-3">{% trans "Available vocabularies and ontologies" %}</h2>
     {% endif %}
-  </div>
-  <div class="vocabularies">
     {% for vocabClassName,vocabArray in request.vocabList %}
-    <div class="vocab-category">
-      <h3>{{ vocabClassName }}</h3>
-      <ul>
+    <div class="vocab-category border-top border-dark-top">
+      <h3 class="fs-3 py-3">{{ vocabClassName }}</h3>
+      <ul class="list-group">
       {% for vocab in vocabArray %}
-        <li><a class="navigation-font" href="{{ vocab.id }}/{{ request.lang }}/{% if request.contentLang != request.lang and request.contentLang != '' and request.contentLang in vocab.config.languages %}?clang={{ request.contentLang }}{% endif %}">{{ vocab.title }}</a></li>
+        <li class="list-group-item border-0 ps-0"><a class="fs-4" href="{{ vocab.id }}/{{ request.lang }}/{% if request.contentLang != request.lang and request.contentLang != '' and request.contentLang in vocab.config.languages %}?clang={{ request.contentLang }}{% endif %}">{{ vocab.title }}</a></li>
       {% endfor %}
       </ul>
     </div>
-    {% if not loop.last %}<div class="vocabulary-separator"></div>{% endif %}
     {% endfor %}
-  </div>
   {% endif %}
 </div>

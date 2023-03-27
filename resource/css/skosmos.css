@@ -1,0 +1,63 @@
+:root {
+    /* Color definitions */
+    --dark-color: #0d284e;
+    --secondary-dark-color: #1b709d ;
+    --medium-color: #dfe5ed;
+    --secondary-medium-color: #b8c9db;
+    --light-color: #f2f5f7;
+    --white-color: #ffffff;
+
+    /* Font definitions */
+    --font-size: 14px;
+    --font-family: 'Public Sans', sans-serif;
+    --font-family-heading: 'EB Garamond', serif; 
+}
+
+body {
+  color: var(--dark-color);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+}
+
+.fs-1 {
+  font-size: 3.75em !important;
+}
+
+.fs-2 {
+  font-size: 3.25em !important;
+}
+
+.fs-3 {
+  font-size: 2.5em !important;
+}
+
+#vocabulary-list h2 {
+  font-family: var(--font-family-heading) !important;
+}
+
+#vocabulary-list .list-group-item {
+  background-color: var(--medium-color) !important;
+}
+
+#vocabulary-list .border-top {
+  border-top: 2px var(--dark-color) solid !important;
+}
+
+.bg-dark {
+  background-color: var(--dark-color) !important;
+}
+
+.bg-medium {
+  background-color: var(--medium-color) !important;
+}
+
+.bg-light {
+  background-color: var(--light-color) !important;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1400px !important;
+  }
+}
+    

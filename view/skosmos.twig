@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="{{ request.lang }}">
+<head>
+<base href="{{ BaseHref }}">
+<link rel="shortcut icon" href="favicon.ico">
+{% include 'meta.twig' %}
+<link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" media="screen, print" rel="stylesheet" type="text/css">
+<link href="resource/css/fonts.css" media="screen, print" rel="stylesheet" type="text/css">
+<link href="resource/css/skosmos.css" media="screen, print" rel="stylesheet" type="text/css">
+{% if ServiceCustomCss %}
+<link href="{{ ServiceCustomCss }}" media="screen, print" rel="stylesheet" type="text/css">
+{% endif %}
+{% for plugin, files in request.plugins.pluginsCSS %}{% for file in files %}<link href="{{ file }}" media="screen, print" rel="stylesheet" type="text/css">{% endfor %}{% endfor %}
+
+<title>{{ ServiceName }}{% block title %}{% endblock %}</title>
+</head>
+<body{% if request.vocabid == '' and request.page != 'feedback' and request.page != 'about' %} class="frontpage-logo"{% else %} class="vocab-{{ request.vocabid }}"{% endif %}>
+  <noscript>
+    <strong>{% trans "We're sorry but Skosmos doesn't work properly without JavaScript enabled. Please enable it to continue." %}</strong>
+  </noscript>
+  <a class="visually-hidden" id="skiptocontent" href="{{ request.langurl }}#maincontent">{% trans "Skip to main" %}</a>
+  {% include 'topbar.twig' %}
+  {% include 'headerbar.twig' %}
+  <main class="container{% if request.vocabid == '' or global_search %} frontpage{% if list_style %} {{ list_style }}{% endif %}{% endif %}">
+    {% if request.vocabid != '' and request.page != 'feedback'  %}
+      {% include 'sidebar.twig' %}
+    {% endif %}
+
+    {% if request.vocabid == '' and request.page != 'feedback' and request.page != 'about' and not global_search %}
+      {% include 'left.inc' ignore missing %}
+    {% endif %}
+    {% block error %}
+    <div class="row" id="maincontent" tabindex="-1">
+      {% if request.vocabid == '' and request.page != 'feedback' and request.page != 'about' and not global_search %}
+      <div class="col-md-7">
+        {% include 'vocabularylist.twig' %}
+      </div>
+      {% endif %}
+    </div>
+    {% endblock %}
+    {% if request.vocabid == '' and not global_search and request.page != 'feedback' and request.page != 'about' %}
+      {% include 'right.inc' ignore missing %}
+    {% endif %}
+    <footer id="footer"></footer>
+  </div>
+  {% include 'footer.inc' ignore missing %}
+  {% for id, template in request.plugins.templates %}<script id="{{ id }}" type="text/x-handlebars-template">{{ template|raw }}</script>{% endfor %}
+  {% include 'scripts.twig' %}
+</body>
+</html>

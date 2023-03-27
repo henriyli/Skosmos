@@ -51,20 +51,4 @@ var pluginParameters = {{ plugin_params|raw }};
 {}
 {% endif %}
 </script>
-<script src="vendor/components/jquery/jquery.min.js"></script>
-<script src="vendor/components/handlebars.js/handlebars.min.js"></script>
-<script src="vendor/vakata/jstree/dist/jstree.min.js"></script>
-<script src="vendor/twitter/typeahead.js/dist/typeahead.bundle.min.js"></script>
-<script src="vendor/davidstutz/bootstrap-multiselect/dist/js/bootstrap-multiselect.min.js"></script>
 <script src="vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js"></script>
-<script src="vendor/etdsolutions/waypoints/jquery.waypoints.min.js"></script>
-<script src="vendor/newerton/jquery-mousewheel/jquery.mousewheel.min.js"></script>
-<script src="vendor/pamelafox/lscache/lscache.min.js"></script>
-<script src="resource/js/config.js"></script>
-<script src="resource/js/hierarchy.js"></script>
-<script src="resource/js/groups.js"></script>
-<script src="resource/js/scripts.js"></script>
-{% for files in request.plugins.pluginsJS %}{% for file in files %}<script src="{{ file }}"></script>{% endfor %}{% endfor %}
-{% if request.plugins.callbacks %}<script>var pluginCallbacks = [{% for function in request.plugins.callbacks %}{% if not loop.first %}, {% endif %}"{{ function }}"{% endfor %}];</script>{% endif %}
-<script src="resource/js/docready.js"></script>
-

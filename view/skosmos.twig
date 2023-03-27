@@ -14,14 +14,14 @@
 
 <title>{{ ServiceName }}{% block title %}{% endblock %}</title>
 </head>
-<body{% if request.vocabid == '' and request.page != 'feedback' and request.page != 'about' %} class="frontpage-logo"{% else %} class="vocab-{{ request.vocabid }}"{% endif %}>
+<body{% if request.vocabid == '' and request.page != 'feedback' and request.page != 'about' %} class="bg-light frontpage-logo"{% else %} class="vocab-{{ request.vocabid }}"{% endif %}>
   <noscript>
     <strong>{% trans "We're sorry but Skosmos doesn't work properly without JavaScript enabled. Please enable it to continue." %}</strong>
   </noscript>
   <a class="visually-hidden" id="skiptocontent" href="{{ request.langurl }}#maincontent">{% trans "Skip to main" %}</a>
   {% include 'topbar.twig' %}
   {% include 'headerbar.twig' %}
-  <main class="container{% if request.vocabid == '' or global_search %} frontpage{% if list_style %} {{ list_style }}{% endif %}{% endif %}">
+  <main class="container pb-5{% if request.vocabid == '' or global_search %} frontpage{% if list_style %} {{ list_style }}{% endif %}{% endif %}">
     {% if request.vocabid != '' and request.page != 'feedback'  %}
       {% include 'sidebar.twig' %}
     {% endif %}
@@ -30,7 +30,7 @@
       {% include 'left.inc' ignore missing %}
     {% endif %}
     {% block error %}
-    <div class="row" tabindex="-1">
+    <div class="row gx-5 gy-5" tabindex="-1">
       {% if request.vocabid == '' and request.page != 'feedback' and request.page != 'about' and not global_search %}
       <div class="col-md-7">
         {% include 'vocabularylist.twig' %}

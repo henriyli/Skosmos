@@ -22,15 +22,9 @@
   {% include 'topbar.twig' %}
   {% include 'headerbar.twig' %}
   <main class="container pb-5{% if request.vocabid == '' or global_search %} frontpage{% if list_style %} {{ list_style }}{% endif %}{% endif %}">
-    {% if request.vocabid != '' and request.page != 'feedback'  %}
-      {% include 'sidebar.twig' %}
-    {% endif %}
-
-    {% if request.vocabid == '' and request.page != 'feedback' and request.page != 'about' and not global_search %}
-      {% include 'left.inc' ignore missing %}
-    {% endif %}
-    {% block error %}
     <div class="row gx-5 gy-5" tabindex="-1">
+      {% block error %}
+      {% endblock %}
       {% if request.vocabid == '' and request.page != 'feedback' and request.page != 'about' and not global_search %}
       <div class="col-md-7">
         {% include 'vocabularylist.twig' %}
@@ -38,9 +32,18 @@
       <div class="col-md-5">
         {% include 'landing-welcome.twig' %}
       </div>
+      {% else %}
+      <div class="col-md-4">
+      {% if request.vocabid != '' and request.page != 'feedback'  %}
+        {% include 'sidebar.twig' %}
+      {% endif %}
+      </div>
+      <div class="col-md-8">
+        {% block content %}
+        {% endblock %}
+      </div>
       {% endif %}
     </div>
-    {% endblock %}
   </main>
   {% include 'footer.twig' %}
   {% include 'footer.inc' ignore missing %}

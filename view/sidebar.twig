@@ -2,12 +2,12 @@
 {% block sidebar %}
   <div class="sidebar-buttons">
     {% set sidebarHeading = request.page != 'search' ? "Sidebar listing: list and traverse vocabulary contents by a criterion" : "Sidebar listing: vocabulary search options" %}
-    <h2 class="sr-only">{% trans sidebarHeading %}</h2>
+    <h2 class="visually-hidden">{% trans sidebarHeading %}</h2>
     <ul class="nav nav-tabs{% if vocab.config.showChangeList and vocab.config.groupClassURI and vocab.config.showAlphabeticalIndex %} nav-four-wide{% endif %}">
     {% if request.page != 'search' %}
       {% set css_class = ['nav-link'] %}
       {% if request.vocab.config.showAlphabeticalIndex %}
-      <h3 class="sr-only">{% trans "List vocabulary concepts alphabetically" %}</h3>
+      <h3 class="visually-hidden">{% trans "List vocabulary concepts alphabetically" %}</h3>
       {% if search_results|length != 1 or (term and search_results|length == 1) %}{% set css_class = css_class|merge(['active']) %}{% endif %}
       <li id="alpha" class="nav-item"><a class="{{ css_class|join(' ') }}" href="{{ request.vocabid }}/{{ request.lang }}/index{% if request.contentLang != request.lang %}?clang={{ request.contentLang }}{% endif %}">{% if vocab.config.showChangeList and vocab.config.groupClassURI %}{% trans'A-Z'%}{% else %}{% trans "Alpha-nav" %}{% endif %}</a></li>
       {% endif %}
@@ -16,7 +16,7 @@
       {%  if disabledHierarchy %}
         {% set css_class = css_class|merge(['skosmos-tooltip-wrapper', 'skosmos-tooltip', 't-bottom']) %}
       {%  endif %}
-      <h3 class="sr-only">{% trans "List vocabulary concepts hierarchically" %}</h3>
+      <h3 class="visually-hidden">{% trans "List vocabulary concepts hierarchically" %}</h3>
       {% if search_results|length == 1 and not term %}{% set css_class = css_class|merge(['active']) %}{% endif %}
       <li id="hierarchy{%- if disabledHierarchy %}-disabled{% endif -%}" class="nav-item">
         <a class="{{ css_class|join(' ') }}" href="#" id="hier-trigger"
@@ -26,29 +26,29 @@
       </li>
       {% set css_class = ['nav-link'] %}
       {% if vocab.config.groupClassURI %}
-      <h3 class="sr-only">{% trans "List vocabulary concepts and groupings hierarchically" %}</h3>
+      <h3 class="visually-hidden">{% trans "List vocabulary concepts and groupings hierarchically" %}</h3>
       <li id="groups" class="nav-item"><a class="{{ css_class|join(' ') }}" href="{{ request.vocabid }}/{{ request.lang }}/groups{% if request.contentLang != request.lang %}?clang={{ request.contentLang }}{% endif %}">{% trans "Group-nav" %}</a></li>
       {% endif %}
       {% if vocab.config.showChangeList %}
       {% if active_tab == 'new' %}{% set css_class = css_class|merge(['active']) %}{%  endif %}
       {% if vocab.config.showDeprecatedChanges %}
-      <h3 class="sr-only">{% trans "List vocabulary concepts by newest additions including removed" %}</h3>
+      <h3 class="visually-hidden">{% trans "List vocabulary concepts by newest additions including removed" %}</h3>
       <li id="changes" class="nav-item"><a class="{{ css_class|join(' ') }}" href="{{ request.vocabid }}/{{ request.lang }}/new{% if request.contentLang != request.lang %}?clang={{ request.contentLang }}{% endif %}">{% trans "Changes-and-deprecations-nav" %}</a></li>
       {% else %}
-      <h3 class="sr-only">{% trans "List vocabulary concepts by newest additions" %}</h3>
+      <h3 class="visually-hidden">{% trans "List vocabulary concepts by newest additions" %}</h3>
       {% set css_class = ['nav-link'] %}
       {% if active_tab == 'new' %}{% set css_class = css_class|merge(['active']) %}{%  endif %}
       <li id="changes" class="nav-item"><a class="{{ css_class|join(' ') }}" href="{{ request.vocabid }}/{{ request.lang }}/new{% if request.contentLang != request.lang %}?clang={{ request.contentLang }}{% endif %}">{% trans "Changes-nav" %}</a></li>
       {% endif %}
       {% endif %}
       {% else %}
-      <h3 class="sr-only">{% trans "Search options tab" %}</h3>
+      <h3 class="visually-hidden">{% trans "Search options tab" %}</h3>
       <li id="limit" class="nav-item"><p>{% trans "Search options" %}</p></li>
     {% endif %}
     </ul>
   </div>
   {% if letters %}
-    <h4 class="sr-only">{% trans "Choose alphabetical listing letter" %}</h4>
+    <h4 class="visually-hidden">{% trans "Choose alphabetical listing letter" %}</h4>
     <ul class="pagination">
     {% for letter in letters %} {# looping through all letters #}
       <li
@@ -56,14 +56,14 @@
       >
         <a href="{{ request.vocabid }}/{{ request.lang }}/index/{{ letter }}
           {%- if request.contentLang != request.lang %}?clang={{ request.contentLang }}{% endif -%}
-        "><span class="sr-only">{{ letter | lower }}</span><span aria-hidden=true>{{ letter }}</span></a>
+        "><span class="visually-hidden">{{ letter | lower }}</span><span aria-hidden=true>{{ letter }}</span></a>
       </li>
     {% endfor %}
     </ul>
   {% endif %}
 
   {% if request.page != 'search' %}
-  <h4 class="sr-only">{% trans "Listing vocabulary concepts alphabetically" %}</h4>
+  <h4 class="visually-hidden">{% trans "Listing vocabulary concepts alphabetically" %}</h4>
   {% endif %}
   <div class="sidebar-grey {% if alpha_results %} sidebar-grey-alpha{% elseif search_results|length == 1 and not term %} concept-hierarchy{% endif %}">
     <div id="alphabetical-menu">
@@ -75,7 +75,7 @@
             {% set alpha = (value.altLabel ?? value.prefLabel)|upper|first %}
             {% if alpha != previous %}
             <li class="alphabet-header" name="{{ alpha }}">
-              <h5 class="sr-only">{{ alpha | lower }}</h5>
+              <h5 class="visually-hidden">{{ alpha | lower }}</h5>
               <h5 aria-hidden=true>{{ alpha }}</h5>
             </li>
             {% set previous = alpha %}
@@ -85,7 +85,7 @@
           {% if value.altLabel %}
           {% set prefLabelAltogether = value.prefLabel ~ (value.qualifier ? ' (' ~ value.qualifier ~ ')' : "") %}
           <span aria-hidden=true><span class="replaced">{{ value.altLabel }}</span>	&rarr;</span>
-          <a href="{{ value.uri | link_url(vocab,request.lang,'page',request.contentLang) }}"><span class="sr-only">{{ value.altLabel}} {% trans "Prefer using" %} {{ prefLabelAltogether}}</span><span aria-hidden=true>{{prefLabelAltogether}}</span></a>
+          <a href="{{ value.uri | link_url(vocab,request.lang,'page',request.contentLang) }}"><span class="visually-hidden">{{ value.altLabel}} {% trans "Prefer using" %} {{ prefLabelAltogether}}</span><span aria-hidden=true>{{prefLabelAltogether}}</span></a>
           {% else %}
           <a href="{{ value.uri | link_url(vocab,request.lang,'page',request.contentLang) }}">{{ value.prefLabel }}{% if value.qualifier %} ({{ value.qualifier }}){% endif %}</a>
           {% endif %}
@@ -95,7 +95,7 @@
       {% endif %}
     </div>
     {% if request.page == 'search' %}
-    <h4 class="sr-only">{% trans "Limit search" %}</h4>
+    <h4 class="visually-hidden">{% trans "Limit search" %}</h4>
     <form class="search-options">
       {% set conceptSchemes = vocab.conceptSchemes %}
       {% if conceptSchemes|length > 1 %}

@@ -41,11 +41,8 @@
       {% endif %}
     </div>
     {% endblock %}
-    {% if request.vocabid == '' and not global_search and request.page != 'feedback' and request.page != 'about' %}
-      {% include 'right.inc' ignore missing %}
-    {% endif %}
-    <footer id="footer"></footer>
-  </div>
+  </main>
+  {% include 'footer.twig' %}
   {% include 'footer.inc' ignore missing %}
   {% for id, template in request.plugins.templates %}<script id="{{ id }}" type="text/x-handlebars-template">{{ template|raw }}</script>{% endfor %}
   {% include 'scripts.twig' %}

@@ -66,7 +66,7 @@
   <h4 class="visually-hidden">{% trans "Listing vocabulary concepts alphabetically" %}</h4>
   {% endif %}
   <div class="sidebar-grey {% if alpha_results %} sidebar-grey-alpha{% elseif search_results|length == 1 and not term %} concept-hierarchy{% endif %}">
-    <div id="alphabetical-menu">
+    <div class="container" id="alphabetical-menu">
       {% if alpha_results %}
         {% set previous = '' %}
         <ul class="list-group alphabetical-search-results side-navi">
@@ -74,7 +74,7 @@
           {% if all_letters == true %}
             {% set alpha = (value.altLabel ?? value.prefLabel)|upper|first %}
             {% if alpha != previous %}
-            <li class="alphabet-header" name="{{ alpha }}">
+            <li class="list-group-item text-decoration-none alphabet-header" name="{{ alpha }}">
               <h5 class="visually-hidden">{{ alpha | lower }}</h5>
               <h5 aria-hidden=true>{{ alpha }}</h5>
             </li>

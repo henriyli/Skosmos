@@ -1,22 +1,19 @@
 <div class="container">
   <div class="bg-light py-5 px-5" id="vocab-info">
-    <div>
-      <h2 class="fs-3">{% trans "Vocabulary information" %}</h2>
-      <hr />
-    </div>
+    <h2 class="fw-bold fs-3 py-4">{% trans "Vocabulary information" %}</h2>
     {% set vocabInfo = vocab.info(request.contentLang) %}
     {% if not vocabInfo %}
     <div class="alert alert-danger" role="alert">
         {% trans "Error: Failed to retrieve vocabulary information!" %}
     </div>
     {% else %}
-    <div class="vocab-info-literals">
-      <div class="table">
+    <table class="vocab-info-literals">
+      <tbody class="table">
         {% for key, values in vocabInfo %}
         {% set keytrans = key %}
-        <div class="row">
-          <div class="property-label versal"><h3>{{ keytrans|trans }}</h3><div class="property-divider"></div></div>
-          <div class="property-value-column versal">
+        <tr>
+          <td class="main-table-label fw-bold">{{ keytrans|trans }}</td>
+          <td class="align-middle">
             {% for val in values %}
             <div class="property-value-wrapper">
               {% if val.get('skosmos:vocab') %}
@@ -33,33 +30,33 @@
               {% endif %}
             </div>
             {% endfor %}
-          </div>
-        </div>
+          </td>
+        </tr>
         {% endfor %}
-        <div class="row">
-          <div class="property-label versal"><h3>URI</h3></div>
-          <div class="property-value-column versal">
+        <tr>
+          <td class="main-table-label fw-bold">URI</td>
+          <td class="align-middle">
             <div class="property-value-wrapper">
               <span class="uri-input-box">{{ vocab.defaultConceptScheme }}</span>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
     {% endif %}
     {% if vocab.config.showStatistics %}
-    <div>
-      <h3>{% trans "Resource counts by type" %}</h3>
+    <div class="vocab-statistics">
+      <h3 class="fw-bold py-3">{% trans "Resource counts by type" %}</h3>
       <table class="table" id="counts">
         <tr><th class="versal">{% trans "Type" %}</th><th class="versal">{% trans "Count" %}</th></tr>
       </table>
-      <h3>{% trans "Term counts by language" %}</h3>
       <table class="table" id="statistics">
+      <h3 class="fw-bold py-3">{% trans "Term counts by language" %}</h3>
       <tr>
-        <th class="versal">{% trans "Concept language" %}</th>
-        <th class="versal">{% trans "Preferred terms" %}</th>
-        <th class="versal">{% trans "Alternate terms" %}</th>
-        <th class="versal">{% trans "Hidden terms" %}</th>
+        <th class="main-table-label fw-bold">{% trans "Concept language" %}</th>
+        <th class="main-table-label fw-bold">{% trans "Preferred terms" %}</th>
+        <th class="main-table-label fw-bold">{% trans "Alternate terms" %}</th>
+        <th class="main-table-label fw-bold">{% trans "Hidden terms" %}</th>
       </tr>
       </table>
     </div>

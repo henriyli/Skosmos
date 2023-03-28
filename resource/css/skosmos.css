@@ -31,7 +31,20 @@ body {
   font-size: 2.75em !important;
 }
 
-#vocabulary-list h2, #welcome-box h2 {
+
+.bg-dark {
+  background-color: var(--dark-color) !important;
+}
+
+.bg-medium {
+  background-color: var(--medium-color) !important;
+}
+
+.bg-light {
+  background-color: var(--light-color) !important;
+}
+
+#vocabulary-list h2, #welcome-box h2, #vocab-info h2 {
   font-family: var(--font-family-heading) !important;
 }
 
@@ -53,17 +66,27 @@ header > h2 > a {
     text-decoration: underline var(--secondary-medium-color) solid;
 }
 
-
-.bg-dark {
-  background-color: var(--dark-color) !important;
+tr > td {
+  color: var(--dark-color);
 }
 
-.bg-medium {
-  background-color: var(--medium-color) !important;
+tr > td > div > a {
+  color: var(--secondary-dark-color);
+  text-decoration: none !important;
+  font-weight: 700 !important;
 }
 
-.bg-light {
-  background-color: var(--light-color) !important;
+
+td.main-table-label, .vocab-statistics > h3 {
+  font-size: 20px !important;
+}
+
+td.align-middle {
+  font-size: 16px;
+}
+
+table.vocab-info-literals > tbody > tr {
+  border-top: 1px solid var(--medium-color);
 }
 
 @media (min-width: 1200px) {

@@ -66,6 +66,10 @@ header > h2 > a {
     text-decoration: underline var(--secondary-medium-color) solid;
 }
 
+#alphabetical-menu > .list-group > .list-group-item {
+  border: none !important;
+}
+
 tr > td {
   color: var(--dark-color);
 }

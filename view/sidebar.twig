@@ -81,7 +81,7 @@
             {% set previous = alpha %}
             {% endif %}
           {% endif %}
-          <li>
+          <li class="list-group-item text-decoration-none">
           {% if value.altLabel %}
           {% set prefLabelAltogether = value.prefLabel ~ (value.qualifier ? ' (' ~ value.qualifier ~ ')' : "") %}
           <span aria-hidden=true><span class="replaced">{{ value.altLabel }}</span>	&rarr;</span>

@@ -70,6 +70,100 @@ header > h2 > a {
   border: none !important;
 }
 
+#sidebar > div > .nav-tabs > .nav-item {
+  border: none !important;
+  border-image: none !important;
+  transition: none;
+}
+
+/*** Sidebar ***/
+#sidebar .nav-item {
+    background-color: var(--light-color);
+}
+
+#sidebar .nav-link {
+    color: var(--dark-color) !important;
+    transition: none;
+}
+
+#sidebar .nav .active {
+    background-color: var(--dark-color);
+    color: var(--white-color) !important;
+}
+
+#sidebar .pagination {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    padding: 1rem;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+#sidebar .page-item, #sidebar .page-link {
+    background-color: var(--dark-color);
+    color: var(--white-color) !important;
+    font-weight: normal !important;
+    border: none;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    transition: none;
+}
+
+/* Not sure what these should be, probably something though */
+#sidebar .page-link:hover, #sidebar .page-link:active, #sidebar .page-link:focus {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    box-shadow: none;
+}
+
+#alpha-list {
+    padding: 2rem 1rem;
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-color: var(--secondary-medium-color) var(--light-color);
+    height: 600px; /*remove*/
+}
+
+#alpha-list::-webkit-scrollbar {
+    background: var(--light-color);
+}
+
+#alpha-list::-webkit-scrollbar-thumb {
+    background: var(--secondary-medium-color);
+}
+
+#alpha-list li {
+    border: none;
+    border-radius: none;
+    padding: 0.25rem 0.5rem;
+}
+
+#alpha-list a {
+    color: var(--secondary-dark-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#alpha-list .list-group-item.selected a {
+    color: var(--dark-color);
+    font-size: 18px;
+}
+
+#tab-hierarchy {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+}
+
+#sidebar .page-item, #sidebar .page-link {
+    background-color: var(--dark-color);
+    color: var(--white-color) !important;
+    font-weight: normal !important;
+    border: none;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    transition: none;
+}
+
 tr > td {
   color: var(--dark-color);
 }

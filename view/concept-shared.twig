@@ -1,7 +1,7 @@
 {% if vocab.title != null or search_results != null %}
   {% if search_results %}
     {% for concept in search_results %} {# loop through the hits #}
-    <h2 class="sr-only">{% trans "Concept information" %}</h2>
+    <h2 class="visually-hidden">{% trans "Concept information" %}</h2>
     {% if concept.deprecated %}
     <div class="alert alert-danger">
       <p class="deprecated-alert">{% trans %}deprecated{% endtrans %}</p>
@@ -12,33 +12,8 @@
       <p class="language-alert">{% trans %}There is no term for this concept in this language{% endtrans %}</p>
     </div>
     {% endif %}
-    <div class="concept-info{% if concept.deprecated %} deprecated-concept{% endif %}">
-      <div class="concept-main">
-      {% if bread_crumbs is defined %}
-        <div class="row">
-        {% for path in bread_crumbs %}
-        {% if path|length > 1 %}
-          {% set crumbId = loop.index %}
-            <div class="crumb-path">
-            {% for crumb in path %}
-            {% if not loop.last %}<a class="propertyvalue bread-crumb{% if crumb.hiddenLabel %} expand-crumbs{% endif %}" href="{{ crumb.uri|link_url(vocab,request.lang,'page',request.contentLang) }}">{{ crumb.prefLabel }}</a><span class="bread-crumb"> > </span>
-            {% else %}<span class="bread-crumb propertylabel-pink">{{ crumb.prefLabel }}</span>
-            {% endif %}
-            {% if crumb.hiddenLabel %}
-              {% for hiddenPath in combined %}
-                {% if crumbId == loop.index %}
-                  {% for hiddenCrumb in hiddenPath %}
-                  <a class="propertyvalue hidden-breadcrumb" href="{{ hiddenCrumb.uri|link_url(vocab,request.lang,'page',request.contentLang) }}">{{ hiddenCrumb.hiddenLabel }}</a><span class="hidden-breadcrumb"> > </span>
-                  {% endfor %}
-                {% endif %}
-              {% endfor %}
-            {% endif %}
-            {% endfor %}
-            </div>
-          {% endif %}
-        {% endfor %}
-        </div>
-      {% endif %}
+    <div class="container concept-info{% if concept.deprecated %} deprecated-concept{% endif %}">
+      <div class="bg-light py-5 px-5 concept-main">
       {% spaceless %}
       <div class="row{% if concept.type == 'skosext:DeprecatedConcept' %} deprecated{% endif %} property prop-preflabel">
         <div class="property-label property-label-pref">

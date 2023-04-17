@@ -69,7 +69,7 @@
     <div class="container" id="alphabetical-menu">
       {% if alpha_results %}
         {% set previous = '' %}
-        <ul class="list-group alphabetical-index side-navi">
+        <ul id="alpha-list" class="list-group side-navi">
           {% for key,value in alpha_results %}
           {% if all_letters == true %}
             {% set alpha = (value.altLabel ?? value.prefLabel)|upper|first %}

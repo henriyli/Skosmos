@@ -3,7 +3,7 @@
 {% block title %}: {{ vocab.shortName }}{% if search_results|length == 1 %}: {{ concept_label }}{% elseif term != '' %} '{{ term }}'{% endif %}
 {% endblock %}
 {% block content %}
-<div class="search-result-listing">
+<div class="container">
   <h2 class="sr-only">{% trans "Search results" %}</h2>
   {% include 'search-result.twig' %}
   {% if search_results is null %}
